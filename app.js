@@ -41,37 +41,15 @@ module.exports = (app) => {
         }
       } catch (error) {
         console.log("Opening issue...");
-        console.log("errror" + error);
 
-        if (error == "DOI not found") {
-          const repoIssue = await context.octokit.rest.issues.create({
-            owner,
-            repoName,
-            title: "Could not find a DOI in the README",
-            body: ISSUE_MESSAGE,
-          });
-          return repoIssue;
-        }
+        const repoIssue = await context.octokit.rest.issues.create({
+          owner,
+          repoName,
+          title: "Could not find a DOI in the README",
+          body: ISSUE_MESSAGE,
+        });
 
-        if (error === "Invalid DOI") {
-          const repoIssue = await context.octokit.rest.issues.create({
-            owner,
-            repoName,
-            title: "Invalid DOI in the README",
-            body: "The DOI in the README is invalid. Please replace it with a valid DOI.",
-          });
-          return repoIssue;
-        }
-
-        if (error === "Broken DOI") {
-          const repoIssue = await context.octokit.rest.issues.create({
-            owner,
-            repoName,
-            title: "Broken DOI in the README",
-            body: "The DOI in the README is broken. Please replace it with a valid DOI.",
-          });
-          return repoIssue;
-        }
+        return repoIssue;
       }
     }
   });
