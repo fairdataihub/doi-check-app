@@ -41,6 +41,7 @@ module.exports = (app) => {
         }
       } catch (error) {
         console.log("Opening issue...");
+        console.log("errror" + error);
 
         if (error == "DOI not found") {
           const repoIssue = await context.octokit.rest.issues.create({
