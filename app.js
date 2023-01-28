@@ -44,7 +44,7 @@ module.exports = (app) => {
 
         const repoIssue = await context.octokit.rest.issues.create({
           owner,
-          repoName,
+          repo: repoName,
           title: "Could not find a DOI in the README",
           body: ISSUE_MESSAGE,
         });
