@@ -2,6 +2,10 @@
 
 A GitHub App built with [Probot](https://github.com/probot/probot). This app checks for DOI links in the README.md file of a repository and warns the user if no DOI is found.
 
+## Usage
+
+1. Install the app on the intended repositories. The app can be found here: https://github.com/apps/doi-checker-app
+
 ## Setup
 
 ```sh
