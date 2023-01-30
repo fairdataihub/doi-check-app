@@ -56,6 +56,7 @@ module.exports = (app) => {
  * @returns
  */
 const checkForDOI = async (context, owner, repoName) => {
+  console.log(owner, repoName);
   try {
     // Get the README
     console.log("Requesting README...");
