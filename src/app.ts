@@ -37,7 +37,7 @@ export default (app: Probot) => {
   });
 
   // on commiting to the master branch
-  app.on("push", async (context: Context) => {
+  app.on("push", async (context: any) => {
     console.log("Push event");
     const owner = context.payload.repository.owner.login;
     const repoName = context.payload.repository.name;
@@ -53,7 +53,11 @@ export default (app: Probot) => {
  * @param {String} repoName
  * @returns
  */
-const checkForDOI = async (context, owner, repoName) => {
+const checkForDOI = async (
+  context: Context,
+  owner: string,
+  repoName: string
+) => {
   console.log(owner, repoName);
 
   try {
