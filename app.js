@@ -7,6 +7,7 @@ module.exports = (app) => {
 
   // On adding app to the account
   app.on("installation.created", async (context) => {
+    console.log("Installation created");
     const owner = context.payload.installation.account.login;
 
     for (const repo of context.payload.repositories) {
@@ -18,6 +19,7 @@ module.exports = (app) => {
 
   // On adding adding a repository to the app
   app.on("installation_repositories.added", async (context) => {
+    console.log("Repository added");
     const owner = context.payload.installation.account.login;
 
     for (const repo of context.payload.repositories_added) {
@@ -29,6 +31,7 @@ module.exports = (app) => {
 
   // on creating a new repository
   app.on("repository.created", async (context) => {
+    console.log("Repository created");
     const owner = context.payload.repository.owner.login;
     const repoName = context.payload.repository.name;
 
@@ -37,6 +40,7 @@ module.exports = (app) => {
 
   // on commiting to the master branch
   app.on("push", async (context) => {
+    console.log("Push event");
     const owner = context.payload.repository.owner.login;
     const repoName = context.payload.repository.name;
 
@@ -54,15 +58,19 @@ module.exports = (app) => {
 const checkForDOI = async (context, owner, repoName) => {
   try {
     // Get the README
+    console.log("Requesting README...");
     const readme = await context.octokit.rest.repos.getReadme({
       owner,
       repoName,
     });
 
+    console.log("README found");
+
     // Get the decoded content
     const readmeContent = Buffer.from(readme.data.content, "base64").toString();
 
     // Check if a doi is present in the readme
+    console.log("Checking for DOI...");
     const doiRegex = /10.\d{4,9}\/[-._;()/:A-Z0-9]+/i;
     const doi = doiRegex.exec(readmeContent);
 
