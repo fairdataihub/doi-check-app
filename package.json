@@ -1,6 +1,6 @@
 {
   "name": "doi-check-app",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "private": true,
   "description": "GitHub App that opens an issue on repositories when a DOI is not found in the README",
   "author": "megasanjay",
@@ -12,16 +12,22 @@
     "probot-app"
   ],
   "scripts": {
-    "start": "probot run ./app.js",
-    "test": "jest"
+    "start": "probot run ./dist/app.js",
+    "build": "tsc",
+    "dev": "yarn build && probot run ./dist/app.js",
+    "test": "ts-node ./test/app.test.ts"
   },
   "dependencies": {
     "probot": "^12.2.4"
   },
   "devDependencies": {
+    "@octokit/webhooks": "^10.7.0",
     "jest": "^29.0.0",
     "nock": "^13.0.5",
-    "smee-client": "^1.2.2"
+    "smee-client": "^1.2.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "uvu": "^0.5.6"
   },
   "engines": {
     "node": ">= 10.13.0"
