@@ -60,8 +60,8 @@ const checkForDOI = async (context, owner, repoName) => {
     // Get the README
     console.log("Requesting README...");
     const readme = await context.octokit.rest.repos.getReadme({
+      owner,
       repo: repoName,
-      repoName,
     });
 
     console.log("README found");
