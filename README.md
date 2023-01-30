@@ -2,6 +2,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Curated with FAIRshare](https://raw.githubusercontent.com/fairdataihub/FAIRshare/main/badge.svg)](https://fairdataihub.org/fairshare)
 [![DOI][zenodo-shield]][zenodo-url]
 
 [contributors-shield]: https://img.shields.io/github/contributors/fairdataihub/doi-check-app.svg?style=flat-square
