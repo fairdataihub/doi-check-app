@@ -1,0 +1,33 @@
+# This CITATION.cff file was generated with FAIRshare.
+# Visit https://fairdataihub.org/fairshare to learn more!
+
+abstract: A GitHub app that checks for DOI links in the README.md file of a repository
+  and warns the user if no DOI is found.
+authors:
+- affiliation: FAIR Data Innovations Hub, California Medical Innovations Institute
+  email: ssoundarajan@calmi2.org
+  family-names: Soundarajan
+  given-names: Sanjay
+  orcid: 0000-0003-2829-8032
+- affiliation: FAIR Data Innovations Hub, California Medical Innovations Institute
+  email: bpatel@calmi2.org
+  family-names: Patel
+  given-names: Bhavesh
+  orcid: 0000-0002-0307-262X
+cff-version: 1.2.0
+date-released: '2023-01-30T21:47:50.837Z'
+identifiers:
+- description: DOI for this software's record on Zenodo
+  type: doi
+  value: 10.5281/zenodo.7587128
+keywords:
+- Probot
+- Digital Object Identifier
+- FAIR
+license: MIT
+message: If you use this software, please cite it as below.
+repository-code: https://github.com/fairdataihub/doi-check-app
+title: DOI Checker GitHub App
+type: software
+url: http://fairdataihub.org
+version: 1.0.0
