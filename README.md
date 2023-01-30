@@ -1,10 +1,27 @@
-# DOI-Checker
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![DOI][zenodo-shield]][zenodo-url]
+
+[contributors-shield]: https://img.shields.io/github/contributors/fairdataihub/doi-check-app.svg?style=flat-square
+[contributors-url]: https://github.com/fairdataihub/FAIRshare/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/fairdataihub/doi-check-app.svg?style=flat-square
+[stars-url]: https://github.com/fairdataihub/doi-check-app/stargazers
+[issues-shield]: https://img.shields.io/github/issues/fairdataihub/doi-check-app.svg?style=flat-square
+[issues-url]: https://github.com/fairdataihub/doi-check-app/issues
+[license-shield]: https://img.shields.io/github/license/fairdataihub/doi-check-app.svg?style=flat-square
+[license-url]: https://github.com/fairdataihub/doi-check-app/blob/main/LICENSE
+[zenodo-shield]: https://zenodo.org/badge/DOI/10.5281/zenodo.7587127.svg
+[zenodo-url]: https://doi.org/10.5281/zenodo.7587127
+
+# DOI Checker GitHub App
 
 A GitHub App built with [Probot](https://github.com/probot/probot). This app checks for DOI links in the README.md file of a repository and warns the user if no DOI is found.
 
 ## Usage
 
-1. Install the app on the intended repositories. The app can be found here: https://github.com/apps/doi-checker-app
+Install the app on the intended repositories. The app can be found here: https://github.com/apps/doi-checker-app
 
 ## Setup
 
@@ -34,4 +51,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-[ISC](LICENSE) © 2023 fairdataihub
+[MIT](LICENSE) © 2023 fairdataihub
