@@ -60,31 +60,40 @@ const checkForDOI = async (context, owner, repoName) => {
   try {
     // Get the README
     console.log("Requesting README...");
-    const readme = await context.octokit.rest.repos.getReadme({
-      owner,
-      repo: repoName,
-    });
 
-    console.log("README found");
+    try {
+      const readme = await context.octokit.rest.repos.getReadme({
+        owner,
+        repo: repoName,
+      });
 
-    // Get the decoded content
-    const readmeContent = Buffer.from(readme.data.content, "base64").toString();
+      console.log("README found");
 
-    // Check if a doi is present in the readme
-    console.log("Checking for DOI...");
-    const doiRegex = /10.\d{4,9}\/[-._;()/:A-Z0-9]+/i;
-    const doi = doiRegex.exec(readmeContent);
+      // Get the decoded content
+      const readmeContent = Buffer.from(
+        readme.data.content,
+        "base64"
+      ).toString();
 
-    /**
-     * !TODO: Check if the doi is valid
-     * Potentially use the crossref api or resolve the DOI manually
-     */
+      // Check if a doi is present in the readme
+      console.log("Checking for DOI...");
+      const doiRegex = /10.\d{4,9}\/[-._;()/:A-Z0-9]+/i;
+      const doi = doiRegex.exec(readmeContent);
 
-    if (doi) {
-      console.log("DOI found");
-    } else {
-      // throw an error to trigger the catch block
-      throw new Error("DOI not found");
+      /**
+       * !TODO: Check if the doi is valid
+       * Potentially use the crossref api or resolve the DOI manually
+       */
+
+      if (doi) {
+        console.log("DOI found");
+      } else {
+        // throw an error to trigger the catch block
+        throw new Error("DOI not found");
+      }
+    } catch (error) {
+      console.log("README not found");
+      throw new Error("README not found");
     }
   } catch (error) {
     console.log("Opening issue...");
