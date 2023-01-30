@@ -85,7 +85,7 @@ const checkForDOI = async (context, owner, repoName) => {
       owner,
       repo: repoName,
       state: "open",
-      creator: "doi-check-app[bot]",
+      creator: "doi-checker-app[bot]",
     });
 
     // If the issue already exists, return
